@@ -1,12 +1,11 @@
-
-.table{
-  padding:10px;
+.table {
+  padding: 10px;
   width: 70%;
   margin: auto;
 }
 
-.table th{
+.table th {
   background-color: black;
-  color:white;
+  color: white;
   text-align: center;
 }

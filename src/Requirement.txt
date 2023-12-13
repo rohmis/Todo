@@ -1,0 +1,6 @@
+1-- install axios--cmd-- npm i axios.
+2-- install react bootstrap --cmd-- npm i react-bootstrap bootstrap.
+
+add all the scripts together.
+run cmd--
+npm install react-scripts --save

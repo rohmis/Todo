@@ -1,11 +1,12 @@
-.table {
-  padding: 10px;
-  width: 70%;
-  margin: auto;
-}
-
 .table th {
   background-color: black;
   color: white;
   text-align: center;
+}
+.table tr {
+  height: 50px;
+}
+
+.btn1 {
+  width: 20%;
 }

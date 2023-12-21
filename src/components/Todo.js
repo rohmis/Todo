@@ -81,95 +81,67 @@ export default function Todo() {
 
   return (
     <Container fluid>
+
+       {/* Todo Form */}
+       
       <Row className="justify-content-center align-items-center">
         <Col xs={12} md={6} className="w-40">
           <Card className="bg-dark text-white my-3 mx-auto rounded-3">
             <Card.Body className="p-3 d-flex flex-column align-items-center">
               <h2 className="fw-bold mb-4 text-uppercase">Todo</h2>
-              {editTodo ? (
-                <Form className="w-100">
-                  <Form.Group className="mb-4">
-                    <Form.Label>Title :</Form.Label>
-                    <Form.Control
-                      type="text"
-                      size="lg"
-                      value={editTodo.title}
-                      onChange={(e) =>
-                        setEditTodo({ ...editTodo, title: e.target.value })
-                      }
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-4">
-                    <Form.Label>Description :</Form.Label>
-                    <Form.Control
-                      as="textarea"
-                      rows={3}
-                      size="lg"
-                      value={editTodo.description}
-                      onChange={(e) =>
-                        setEditTodo({
-                          ...editTodo,
-                          description: e.target.value,
-                        })
-                      }
-                    />
-                  </Form.Group>
-                  <div className="d-grid gap-2">
-                    <Button
-                      variant="outline-light"
-                      className="btn1 px-3 py-2 mb-4 btn-sm  m-auto"
-                      onClick={handleUpdateTodo}
-                      type="button"
-                    >
-                      Update
-                    </Button>
-                  </div>
-                </Form>
-              ) : (
-                <Form className="w-100">
-                  <Form.Group className="mb-4">
-                    <Form.Label>Title :</Form.Label>
-                    <Form.Control
-                      type="text"
-                      size="lg"
-                      value={newTodo.title}
-                      onChange={(e) =>
-                        setNewTodo({ ...newTodo, title: e.target.value })
-                      }
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-4">
-                    <Form.Label>Description :</Form.Label>
-                    <Form.Control
-                      as="textarea"
-                      rows={3}
-                      size="lg"
-                      value={newTodo.description}
-                      onChange={(e) =>
-                        setNewTodo({
-                          ...newTodo,
-                          description: e.target.value,
-                        })
-                      }
-                    />
-                  </Form.Group>
-                  <div className="d-grid gap-2">
-                    <Button
-                      variant="outline-light"
-                      className="btn1 px-3 py-2 mb-4 btn-sm  m-auto"
-                      onClick={handleAddTodo}
-                      type="button"
-                    >
-                      Add
-                    </Button>
-                  </div>
-                </Form>
-              )}
+              <Form className="w-100">
+                <Form.Group className="mb-4">
+                  <Form.Label>Title :</Form.Label>
+                  <Form.Control
+                    type="text"
+                    size="lg"
+                    value={editTodo ? editTodo.title : newTodo.title}
+                    onChange={(e) =>
+                      editTodo
+                        ? setEditTodo({ ...editTodo, title: e.target.value })
+                        : setNewTodo({ ...newTodo, title: e.target.value })
+                    }
+                  />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                  <Form.Label>Description :</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    size="lg"
+                    value={
+                      editTodo ? editTodo.description : newTodo.description
+                    }
+                    onChange={(e) =>
+                      editTodo
+                        ? setEditTodo({
+                            ...editTodo,
+                            description: e.target.value,
+                          })
+                        : setNewTodo({
+                            ...newTodo,
+                            description: e.target.value,
+                          })
+                    }
+                  />
+                </Form.Group>
+                <div className="d-grid gap-2">
+                  <Button
+                    variant="outline-light"
+                    className="btn1 px-3 py-2 mb-4 btn-sm  m-auto"
+                    onClick={editTodo ? handleUpdateTodo : handleAddTodo}
+                    type="button"
+                  >
+                    {editTodo ? "Update" : "Add"}
+                  </Button>
+                </div>
+              </Form>
             </Card.Body>
           </Card>
         </Col>
       </Row>
 
+      {/* Todo List */}
       <Row className="justify-content-center align-items-center">
         <Col>
           <h2 className="fw-bold mb-4 text-uppercase text-center">Todo List</h2>
